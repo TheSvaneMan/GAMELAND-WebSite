@@ -9,18 +9,31 @@ body    {
 header {
         background-color: rgb(255, 255, 255);
         grid-column: span 12;
+        color: white;
         }
 
 a:hover     {
                 color: rgb(5, 177, 13);
             }
+
+
+#logo   {
+        grid-column: 1;
+        width: 64px;
+        z-index: 10;
+        top: 20px;
+        position: relative;
+        justify-content: right;
+        background-repeat: no-repeat;
+}
+
 #filter {
-                height: 300px;
+                height: 150px;
                 grid-column: 1;
-                grid-row-start: 1;
                 grid-row-end: 2;
                 justify-content: center;
                 align-items: center;
+                margin: 100px 0 0 80px;
 }
 #infobar        {
                 color: rgb(255, 255, 255);
@@ -106,6 +119,7 @@ main    {
         grid-row-end: 3;
         height: auto;
         display: flex;
+        margin: 0 50px 0 50px;
         }
 
 #item1, #item2, #item3, #item4, #item5, #item6, #item7, #item8, #item9, #item10, #item11, #item12, #item13, #item14, #item15, #item16, #item17, #item18, img:hover{
@@ -145,40 +159,47 @@ footer {
         background-color: #B61901;
         grid-column: span 12;
         background-size: cover;
-        background-repeat: no-repeat;
         justify-content: center;
-        height: 180px;
         float: left;
-        display: table;
-        content: ""; 
-        box-sizing: inherit;
+        display: grid;
         box-sizing: border-box;   
         }
 
-.socialmedia {
+.socialmedia    {
         padding: 0 20px 0 20px;
-}
+                }
 
-#socialmedia {
+#socialmedia    {
         align-items: center;
-        display: grid;
-        height: 50px;
-        width: 100px;
+        display: flex;
+        height: auto;
+        width: 300px;
+        justify-content: space space-between;
+        grid-column-start: 1;
+        grid-column-end: 2;
+                }
+
+#instagram, #facebook, #twitter {
+        width: 64px;
+
                 }
 
 #paymentmethod {
         align-items: center;
-        display: grid;
-        height: 50px;
-        width: 100px;
-        }
+        display: flex;
+        height: auto;
+        width: 300px;
+        justify-content: space space-between;
+        grid-column-start: 2;
+        grid-column-end: 3;
+                }
 
 #contactdetails {
-        align-items: left;
-        display: grid;
-        height: 50px;
-        width: 100px;
-        color: white;
-
+        align-items: center;
+        display: flex;
+        height: auto;
+        width: 300px;
+        color: rgb(255, 255, 255);
+        grid-column-start: 7;
         }
 
