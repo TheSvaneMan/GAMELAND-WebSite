@@ -6,6 +6,7 @@ body    {
         grid-template-rows: 200px 2800px 180px;
         margin: 0px;
         }
+
 header {
         background-color: rgb(255, 255, 255);
         grid-column: span 12;
@@ -15,7 +16,6 @@ header {
 a:hover     {
                 color: rgb(5, 177, 13);
             }
-
 
 #logo   {
         grid-column: 1;
@@ -114,45 +114,38 @@ main    {
         
         }
 
-#games {
-        grid-row-start: 2;
-        grid-row-end: 3;
-        height: auto;
-        display: flex;
-        margin: 0 50px 0 50px;
+
+
+#table {        
+        background-color: orange;
+}
+
+#games {       
+                background-color: red;
+                grid-row-start: 2;
+                grid-row-end: 3;
+                display: grid;
+                margin: 0 50px 0 50px;
+                width: auto;
+                height: 800px;
+                display: table-cell;
         }
 
-#item1, #item2, #item3, #item4, #item5, #item6, #item7, #item8, #item9, #item10, #item11, #item12, #item13, #item14, #item15, #item16, #item17, #item18, img:hover{
+#items {
+        color: white;
+        background-color: rgb(102, 10, 10);
+        width:  500px;
+        height: 400px;
+        border: 20px solid rgb(255, 255, 255);
+        }
+
+#items:hover{
         opacity: 0.8;
         transition: 0.2ms;
-        
         }
 
 
-.game-lib {
-                display: flex;
-        }
 
-.game-lib {
-                display: grid;
-                grid-column-gap: 50px;
-                grid-row-gap: 50px;
-              }
-
-.game-lib {
-                display: grid;
-                grid-template-columns: auto auto auto auto;
-                justify-content: space-evenly;
-                height: 400px;
-                align-content: space-around;
-              }
-
-.grid-item      {
-                background-color: red;
-                width: auto;
-                height: 400px;
-                
-                }
              
 
 footer {
