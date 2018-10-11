@@ -48,29 +48,17 @@ function buildProductRow(product) {
         "<i class='fas fa-info-circle'></i>Delete" +
         "</button>" +
         "</td >" +
-        "<td>" +
-        "<button type='button' " +
-        "class='btn btn-danger' " +
-        "data-id='" + product.id + "' onclick='openUpdate("+product.id+")'>" +
-        "<i class='fas fa-minus-circle'></i>Update" +
-        "</button>" +
-        "</td >" +
         "</tr>";
     return ret;
 }
 
 function deleteProduct(id) {
-    console.log('delete')
     $.ajax({
         url: 'https://gameland-webshop.azurewebsites.net/api/products/' + id,
         type: 'DELETE',
         dataType: 'json'
     });
-}
-
-function openUpdate(id)
-{
-
+    listProducts();
 }
 
 $('#newProd').on('submit',function(e){
@@ -87,6 +75,42 @@ $('#newProd').on('submit',function(e){
     $.ajax({
         url: "https://gameland-webshop.azurewebsites.net/api/products",
         type: 'POST',
+        datatype: 'json',
+        data: JSON.stringify({
+            "title": title,
+            "console": productconsole,
+            "description": description,
+            "image" : image,
+            "releaseDate" : releaseDate,
+            "price" : price,
+            "stock" : stock
+        }),
+        processData: false,
+        contentType: 'application/json',
+        success: function () {
+            console.log("Yiiiaaaahhhhaaaaaa");
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+        }
+    });
+});
+
+$('#updateProd').on('submit',function(e){
+    e.preventDefault();
+    var id = $("#id").val();
+    var title = $( "#productTitle" ).val();
+    var productconsole = $( "#productConsole" ).val();
+    var description = $( "#productDescription" ).val();
+    var image = $( "#productImage" ).val();
+    var releaseDate = $( "#productDate" ).val();
+    var price = $( "#productPrice" ).val();
+    var stock = $( "#productStock" ).val();
+
+    // In my case, I need to fetch these data before custom actions
+    $.ajax({
+        url: "https://gameland-webshop.azurewebsites.net/api/products/" + id,
+        type: 'PUT',
         datatype: 'json',
         data: JSON.stringify({
             "title": title,
