@@ -1,45 +1,65 @@
-function postList() {
-    // Call Web API to get a list of post
-    $.ajax({
-        url: 'https://gameland-webshop.azurewebsites.net/api/products',
-        type: 'GET',
-        dataType: 'json',
-        success: function (products) {
-            console.log('hello world');
-            postListSuccess(products);
-        },
-        error: function (request, message, error) {
-            handleException(request, message, error);
-        }
-    });
+function postList(){
+  $.ajax({
+    url: 'https://gameland-webshop.azurewebsites.net/api/products',
+    type : 'GET',
+    dataType : 'json',
+    success: function(products){
+      postListSuccess(products);
+      console.log("you fucking clicked a fucking useless stupid button");
+    },
+  });
 }
 
-function postListSuccess(posts) {
-    // Iterate over the collection of data
-    $.each(posts, function (index, post) {
-        // Add a row to the post table
-        postAddRow(post);
-    });
+function postListSuccess(products) {
+  /*if ($("#table tbody").length === 0) {
+    $("#table").append("<tbody></tbody>");
+  }
+$("#table tdody").empty();*/
+$.each(products, function(index, product){
+  postAddRow(product);
+});
 }
 
-function postAddRow(post) {
-    // Check if <tbody> tag exists, add one if not
-    if ($("#table tbody").length == 0) {
-        $("#table").append("<tbody></tbody>");
-    }
-    // Append row to <table>
-   /* if($("#table tbody").length % 6) {
-        $("#table tbody").append(*/
-            postBuildTableRow(post);
-    //}
+function postAddRow(product) {
+$(".table tbody").append(postBuildTableRow(product));
+$(".table tbody").append(postBuildTableRow(product));
 }
 
-function postBuildTableRow(post) {
+function postBuildTableRow(product) {
     var ret =
-        "<tr>" +
-        "<td><img src=" + post.image + "></td>" +
-        "<td>" + post.title + "</td>" +
-        "<td>" + post.price + "</td>" +
-        "</tr>";
+        "<td class='items'>"+
+        "<img src=" + product.image + " style='width:100%'>" +
+        "<p>" + product.title + "<p>" +
+        "<p>" + product.price + "</p>" +
+        "</td>";
     return ret;
 }
+
+$('#customerform').on('submit',function(e){
+  e.preventDefault();
+  var firstName = $( "#firstname" ).val();
+  var lastName = $( "#lastname" ).val();
+  var password = $("#password").val();
+  var email = $("#email").val();
+  var address = $("#address").val();
+  var platform = $("#platform").val();
+  $.ajax({
+    url: 'https://gameland-webshop.azurewebsites.net/api/customers',
+    type: 'POST',
+    data: JSON.stringify({
+        "name": firstName,
+        "lastName": lastName,
+        "email": email,
+        "address": address,
+        "preferredConsole": platform,
+        "orders": null,
+        "password": password
+      }),
+    processData: false,
+    contentType: 'application/json',
+    success: function (comments) {
+      console.log("You create a new customer");
+    },
+
+  });
+});
