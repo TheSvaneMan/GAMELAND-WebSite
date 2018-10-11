@@ -12,11 +12,48 @@ header {
         grid-column: span 12;
         color: white;
         }
+#LIBtn{
 
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+#dropBox{
+  width: 300px;
+  height: 125px;
+  background-color: white;
+  border: 2px black solid;
+  z-index: 9;
+  position: absolute;
+  margin-left: -53px;
+  margin-top: 5px;
+  display: none;
+}
+#FirstName1, #Password1{
+margin: 15px 10px;
+}
+#LISubmit{
+  background: none;
+  border: 2px black solid;
+  cursor: pointer;
+}
+#Close{
+  color: #ffa31a;
+  float: right;
+margin-top: -5px;
+margin-right: 5px;
+cursor:pointer;
+}
+
+ul, li{
+  list-style-type: none;
+}
 a:hover     {
-                color: rgb(5, 177, 13);
+                color: #0C75EE;
             }
-
+a:link , a:visited, a:active {
+  text-decoration: none;
+}
 #logo   {
         grid-column: 1;
         width: 64px;
@@ -111,15 +148,15 @@ main{
         }
 
 .row{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
 }
 
 .table {
         background-color: orange;
         margin: 10px 40px;
-        width: 1240px;
+        width: 1040px;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
 }
 
 #games {
