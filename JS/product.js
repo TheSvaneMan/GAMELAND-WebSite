@@ -5,7 +5,6 @@ function postList(){
     dataType : 'json',
     success: function(products){
       postListSuccess(products);
-      console.log("you fucking clicked a fucking useless stupid button");
     },
   });
 }
@@ -16,20 +15,21 @@ function postListSuccess(products) {
   }
 $("#table tdody").empty();*/
 $.each(products, function(index, product){
-  postAddRow(product);
+postAddRow(product);
 });
 }
 
 function postAddRow(product) {
-$(".table tbody").append(postBuildTableRow(product));
+  $(".table tbody").append(postBuildTableRow(product));
 }
 
 function postBuildTableRow(product) {
     var ret =
+
         "<td class='items'>"+
-        "<img src=" + product.image + " style='width:100%'>" +
+        "<img id='image' src=" + product.image + ">" +
         "<p>" + product.title + "<p>" +
-        "<p>" + product.price + "</p>" +
+        "<p>" + product.price + " DKK</p>" +
         "</td>";
     return ret;
 }
@@ -62,3 +62,66 @@ $('#customerform').on('submit',function(e){
 
   });
 });
+function dropMenu(){
+var box = document.getElementById("dropBox");
+box.style.display = "block";
+}
+
+function Close(){
+var box = document.getElementById("dropBox");
+box.style.display = "none";
+}
+function LogIn(){
+$.ajax({
+  url: 'https://gameland-webshop.azurewebsites.net/api/customers',
+  type : 'GET',
+  dataType : 'json',
+  success: function(customers){
+    var firstName = $("#FirstName1").val();
+    var password = $("#Password1").val();
+    var correctName = false;
+    var correctPassword = false;
+    var customerPassword = customers.password;
+    var nameList = new Array();
+    var passwordList = new Array();
+    $.each(customers, function(index, customer){
+      var names = customer.name;
+      nameList.push(names);
+    });
+    $.each(customers, function(index, customer){
+      var passwords = customer.password;
+      passwordList.push(passwords);
+    });
+    console.log("Checking the name");
+    if ($.inArray(firstName, nameList) != -1) {
+      correctName = true;
+      console.log("Correct name...");
+    }
+    console.log("Checkin the password");
+    if ($.inArray(password, passwordList) != -1) {
+
+        correctPassword = true;
+    }
+    if (correctName && correctPassword) {
+      console.log("Welcome to this wonderful land full of bugs :D");
+      var admin = document.getElementById("ADMINLABEL");
+      admin.style.display = 'block';
+    }else{
+      console.log("yo hacker, go away :c");
+    }
+  },
+
+});
+}
+function GetProductsByID(){
+  var numberForID = $("#textBox").val();
+  $.ajax({
+    url: 'https://gameland-webshop.azurewebsites.net/api/products/' + numberForID,
+    type : 'GET',
+    dataType : 'json',
+    success: function(products){
+      $(".table td").remove();
+      postAddRow(products);
+    },
+  });
+}
