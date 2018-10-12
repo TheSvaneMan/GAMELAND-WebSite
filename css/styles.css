@@ -17,6 +17,7 @@ header {
   background-color: transparent;
   border: none;
   color: white;
+  cursor: pointer;
 }
 #dropBox{
   width: 300px;
@@ -148,17 +149,24 @@ main{
         }
 
 .row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
-
+#ADMINLABEL{
+  opacity: 0;
+}
 .table {
-        background-color: orange;
-        margin: 10px 40px;
-        width: 1040px;
-          display: flex;
-          flex-wrap: wrap;
-          flex-direction: row;
-}
+        margin: 50px 140px;
 
+        margin-left: -150px;
+}
+#image{
+  margin-left: 20px;
+  width: 120px;
+  height: 150px;
+
+}
 #games {
                 background-color: red;
                 grid-row-start: 2;
@@ -173,8 +181,8 @@ main{
 .items {
         color: white;
         background-color: rgb(102, 10, 10);
-        width:  100px;
         height: 100px;
+        width: 200px;
         border: 10px solid rgb(255, 255, 255);
         }
 
@@ -182,11 +190,6 @@ main{
         opacity: 0.8;
         transition: 0.2ms;
         }
-
-
-
-
-
 footer {
         background-color: #B61901;
         grid-column: span 12;

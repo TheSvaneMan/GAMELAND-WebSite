@@ -20,6 +20,7 @@
                             <input type="text" placeholder="">
                             <a class="active" href="accountpage.html">ACC</a>
                             <a href="#about">HELP</a>
+                            <p id="ADMINLABEL"><a href="adminpages/admin.html">ADMIN</a></p>
                     </div>
 
             </div>
@@ -52,14 +53,12 @@
 
     </header>
             <main>
-                <!--<button type="button" class="button" onclick="postList()">Get Data</button>-->
-                <div id="filter">
-                    <button>FILTER</button>
+                    <button onclick="GetProductsByID()">FILTER</button>
 
-                    <input type="text" placeholder="">
+                    <input type="text" id="textBox" placeholder="">
                         <button><img src="../GAMELAND Website/img/iconpack/search.png" style="width:100%">
                         </button>
-                </div>
+
                 <table class="table">
         <tr class="row">
 
