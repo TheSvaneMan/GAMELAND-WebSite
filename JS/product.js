@@ -29,7 +29,7 @@ function postBuildTableRow(product) {
         "<td class='items'>"+
         "<img id='image' src=" + product.image + ">" +
         "<p>" + product.title + "<p>" +
-        "<p>" + product.price + "</p>" +
+        "<p>" + product.price + " DKK</p>" +
         "</td>";
     return ret;
 }
@@ -105,7 +105,7 @@ $.ajax({
     if (correctName && correctPassword) {
       console.log("Welcome to this wonderful land full of bugs :D");
       var admin = document.getElementById("ADMINLABEL");
-      admin.style.opacity = '1';
+      admin.style.display = 'block';
     }else{
       console.log("yo hacker, go away :c");
     }
