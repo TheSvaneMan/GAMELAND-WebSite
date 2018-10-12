@@ -16,7 +16,6 @@ header {
   background-color: transparent;
   border: none;
   color: white;
-  cursor: pointer;
 }
 #dropBox{
   width: 300px;
@@ -148,6 +147,7 @@ main{
         }
 
 .row{
+<<<<<<< HEAD
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -155,18 +155,19 @@ main{
 #ADMINLABEL{
   display: none;
   border: 5px solid black;
+=======
+>>>>>>> parent of 70f0fb9... Some extra functionality with product by id
 }
+
 .table {
-        margin: 50px 140px;
-
-        margin-left: -150px;
+        background-color: orange;
+        margin: 10px 40px;
+        width: 1040px;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
 }
-#image{
-  margin-left: 20px;
-  width: 120px;
-  height: 150px;
 
-}
 #games {
                 background-color: red;
                 grid-row-start: 2;
@@ -181,8 +182,8 @@ main{
 .items {
         color: white;
         background-color: rgb(102, 10, 10);
+        width:  100px;
         height: 100px;
-        width: 200px;
         border: 10px solid rgb(255, 255, 255);
         }
 
@@ -190,6 +191,11 @@ main{
         opacity: 0.8;
         transition: 0.2ms;
         }
+
+
+
+
+
 footer {
         background-color: #B61901;
         grid-column: span 12;

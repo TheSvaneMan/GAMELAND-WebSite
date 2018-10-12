@@ -15,19 +15,19 @@ function postListSuccess(products) {
   }
 $("#table tdody").empty();*/
 $.each(products, function(index, product){
-postAddRow(product);
+  postAddRow(product);
 });
 }
 
 function postAddRow(product) {
-  $(".table tbody").append(postBuildTableRow(product));
+$(".table tbody").append(postBuildTableRow(product));
+$(".table tbody").append(postBuildTableRow(product));
 }
 
 function postBuildTableRow(product) {
     var ret =
-
         "<td class='items'>"+
-        "<img id='image' src=" + product.image + ">" +
+        "<img src=" + product.image + " style='width:100%'>" +
         "<p>" + product.title + "<p>" +
         "<p>" + product.price + " DKK</p>" +
         "</td>";
@@ -99,29 +99,20 @@ $.ajax({
     }
     console.log("Checkin the password");
     if ($.inArray(password, passwordList) != -1) {
-
+      
         correctPassword = true;
     }
     if (correctName && correctPassword) {
       console.log("Welcome to this wonderful land full of bugs :D");
+<<<<<<< HEAD
       var admin = document.getElementById("ADMINLABEL");
       admin.style.display = 'block';
+=======
+>>>>>>> parent of 70f0fb9... Some extra functionality with product by id
     }else{
       console.log("yo hacker, go away :c");
     }
   },
 
 });
-}
-function GetProductsByID(){
-  var numberForID = $("#textBox").val();
-  $.ajax({
-    url: 'https://gameland-webshop.azurewebsites.net/api/products/' + numberForID,
-    type : 'GET',
-    dataType : 'json',
-    success: function(products){
-      $(".table td").remove();
-      postAddRow(products);
-    },
-  });
 }
