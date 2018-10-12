@@ -22,7 +22,6 @@ $.each(products, function(index, product){
 
 function postAddRow(product) {
 $(".table tbody").append(postBuildTableRow(product));
-$(".table tbody").append(postBuildTableRow(product));
 }
 
 function postBuildTableRow(product) {
